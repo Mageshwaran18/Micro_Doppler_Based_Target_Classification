@@ -233,15 +233,50 @@ Compute power spectrum (sum of intensities along frequency axis).
 
 Extract features:
 
-Mean Peak Frequency
+* Mean Peak Frequency
 
-Bandwidth
+Shows dominant motion frequencies.
 
-Spectral Centroid
+Birds have periodic flapping → multiple peaks.
 
-Spectral Entropy
+Drones have more constant rotor-induced frequencies → sharper peaks.
 
-Total Energy
+* Bandwidth
+
+Measures spread of frequency.
+
+Birds have broader bandwidth due to wing flapping.
+
+Drones show narrower bandwidth with stable rotors.
+
+* Spectral Centroid
+
+Represents center of frequency mass.
+
+Drones usually have a higher centroid (high-frequency blades).
+
+Birds have lower centroid due to natural wing motion.
+
+* Spectral Entropy
+
+Indicates complexity/randomness.
+
+Bird motion is more random, hence higher entropy.
+
+Drone signals are structured, lower entropy.
+
+* Total Energy
+
+Reflects overall signal strength.
+
+Drones often have stronger, more continuous energy.
+
+Birds show pulsating energy patterns.
+
+Other Feature we may consider :- 
+
+   Temporal features: How features change over time
+   Higher-order statistics: Skewness, kurtosis of the power spectrum
 
 Label the feature set as either 'Drone' or 'Bird'.
 
