@@ -12,31 +12,58 @@ In traditional models, STFT are used for the conversion time domain into frequen
 
 Data Set Intro :- 
 
-Data Set was a realtime data collected by KTH Royal Institute of Technology, Sweden.
+🛰️ Radar Setup
+Radar Type: FMCW radar (used for detecting range and motion).
 
-Radar Used is FMCW:-
+Location: Data was collected in real-time by KTH Royal Institute of Technology, Sweden.
 
-Bandwidth → 160 MHZ (range & frequency)
+⚙️ Radar Configuration
+Bandwidth: 160 MHz
+→ Gives high accuracy in range detection.
 
-The radar has a pulse rate frequency of 17 KHz and scans 18∘ in 50 ms.
+Pulse Rate Frequency: 17 kHz
+→ Radar sends 17,000 pulses per second.
 
-The dates were created at different ranges with 256 azimuth samples.
+Scan Time & Angle: Scans 18° horizontally in 50 ms
+→ Each scan captures objects within a narrow field of view.
 
-azimuth samples refers to the (horizontal angle) direction.
+🧭 Azimuth Sampling
+256 azimuth samples per scan
+→ The 18° scan area is split into 256 small horizontal slices.
+→ This gives fine directional resolution.
 
-Each sample is Scan of 5 segments and 256 azimuths measured with complex values.
+🧮 Data Per Scan Segment
+Each azimuth sample includes complex values that represent reflected signals (phase + magnitude).
 
-seg 1 [CV₁,CV₂,CV₃...CV₂₅₆]
-seg 5 [CV₁,CV₂,CV₃...CV₂₅₆]
+Each scan segment has:
 
-totally 1280
+5 segments (like 5 snapshots over time or angle)
 
-On reading the complex values we get the array dimension of (1280,25)
+Each segment = 256 azimuths
 
-The Second value in (1280,x)
-x → represent no. of Scan Segments
+So:
 
-Scan segments are thus chunk of data representing the slice of the radar is observation over time (or) angle.
+5
+ segments
+×
+256
+ azimuths
+=
+1280
+ complex values
+5 segments×256 azimuths=1280 complex values
+📐 Shape of One Radar Segment
+When stored in an array:
+
+(
+1280
+,
+25
+)
+(1280,25)
+1280 rows = 5 segments × 256 azimuths
+
+25 columns = 25 scan segments (time or angle slices)
 
 Data Cleaning and Processing from Raw Data Scource  :-
 Each radar segment consists of 1280 complex samples, representing 5 range bins and 256 azimuth sweeps. These segments are processed to extract meaningful features for a machine learning model to distinguish between birds and drones.
@@ -336,9 +363,5 @@ The model has been developed and the final project and deployement method that w
 👥 Contributors
 [Dharshini] (https://github.com/DharshiniRaji)
 [Mahima] (https://github.com/Caeruleaphile08)
-[Prabha] 
-()
-[Rijas]
-()
-[Bala Mugesh]
-()
+[Prabha] (https://github.com/prabhaM07)
+
